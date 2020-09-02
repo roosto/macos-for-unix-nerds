@@ -17,13 +17,44 @@ TODO: rails console invocation
 
 ## Homebrew ##
 
-You need this. Like now.
+The only sane way to install 3rd party unix software on your mac.
 
 Why are you waiting? [Install Homebrew][Homebrew]
 
-Homebrew installs unix utilities properly, inside `/usr/local`. You should _always_ be wary of an installer that wants your administrator password and be especially wary of any command line installation process that whats you to use `sudo`.
+Homebrew installs unix utilities properly, inside `/usr/local`. You should _always_ be wary of an installer that wants your administrator password, and you should basically always refuse to use a command line installation process that want to be run with `sudo`
 
-TODO: 
+TODO: explain about the unix heirarchy
+
+## `defaults write` ##
+
+    defaults write com.apple.screencapture location ~/Screenshots
+    defaults write com.apple.finder AppleShowAllFiles YES # this is one is gross
+
+These can be found out and about and around. I would be wary of certain ones, b/c they get out of date all the time. Some are dangerous, like turning off Gatekeeper.
+
+I use this little technique to record any writes that I make, so that I have some idea of what broke if I break something.
+
+## Terminal.app ##
+
+Good old sturdy, Terminal.app
+
+Preferences:
+  meta key setup
+  alternate presentation scheme
+
+Marks
+  selecting between Marks
+
+Searching
+  searching with selection
+  pasting with selection
+
+Touch Bar
+  * man page
+  * up/down
+  * bookmark
+
+echo 	text
 
 ## Specific Utilities ##
 
@@ -59,8 +90,6 @@ If there is [an xkcd cartoon][xkcd on say(1)] on the topic, you know that it’s
 
 Keep your mac from sleeping, or wake it if it is asleep.
 
-    defaults write com.apple.screencapture location ~/Screenshots
-
 [TidBITS has more on Quick Look][TidBITS on Quick Look], including plugins for other file types.
 
 ### `mdfind` ###
@@ -73,7 +102,7 @@ Search spotlight database.
 
 ### Quick Look ###
 
-Open Quick Look from the command line. (This is one you might want to make a bash alias for).
+Open Quick Look from the command line. (This is one you might want to make an alias for).
 
     qlmanage -p my-pretty-picture.jpg
     alias qlook 'qlmanage -p' # create bash alias
