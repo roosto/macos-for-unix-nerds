@@ -34,26 +34,33 @@ TODO: web form text editing
 
 ## Homebrew ##
 
-The only sane way to install 3rd party unix software on your mac.
+The only sane way to install 3rd party unix software on your mac
 
-Why are you waiting? [Install Homebrew][Homebrew]
+* Homebrew installs unix utilities properly, inside `/usr/local`
+* You should _always_ be wary of an installer that wants your administrator password
+* You should almost w/o exception **refuse** to use a command line installation process that wants to be run with `sudo`
+* See the [project’s home][Homebrew Project website]
 
-Homebrew installs unix utilities properly, inside `/usr/local`. You should _always_ be wary of an installer that wants your administrator password, and you should basically always refuse to use a command line installation process that want to be run with `sudo`
-
-Learn a few things about the files hierarchy & organization (it’s actually not just chaos). See the manual entry for `hier(7)` or the [Wiki article on the Unix filesystem][Unix filesystem: Conventional directory layout]
+For primers on about the filesystem hierarchy & organization (it’s actually not just chaos). See the manual entry for `hier(7)` or the [Wiki article on the Unix filesystem][Unix filesystem: Conventional directory layout]
 
 ---
 
 ## `defaults write` ##
 
-Coming back to showing hidden files. Maybe you’ve seen this?
+Coming back to showing hidden files. Maybe you’ve seen these?
 
-    defaults write com.apple.screencapture location ~/Screenshots
     defaults write com.apple.finder AppleShowAllFiles YES # this is one is gross
 
-These can be found out and about and around. I would be wary of certain ones, b/c they get out of date all the time. Some are dangerous, like turning off Gatekeeper.
 
-I use this little technique to record any writes that I make, so that I have some idea of what broke if I break something.
+    defaults write com.apple.screencapture location ~/Screenshots
+
+* These can be found out and about on the web
+* Be wary of them
+    * they get out of date a lot
+    * some are dangerous; e.g., turning off Gatekeeper
+    * some are redundant to GUI settings
+
+I use [a logging script][log_defaults_writes.bash gist] little technique to record any writes that I make, so that I have some idea of what broke ~~if happen to~~ when I inventitiably I break something.
 
 ---
 
@@ -61,9 +68,8 @@ I use this little technique to record any writes that I make, so that I have som
 
 Good old sturdy, Terminal.app
 
-There are many other terminal emulators, but this one comes installed on my system.
-
-It’s mostly good enough.
+* There are many terminal emulators, but this one ~~is mine~~ comes installed on my system
+* It’s really mostly good enough
 
 ---
 
@@ -78,15 +84,22 @@ Marks & Bookmarks
 * navigating between marks
 * selecting between marks
 
+---
+
+## Terminal.app, digging in …  m0ar … ##
+
 Searching
 * searching with selection
 * pasting with selection
 
+Selecting
+* columnar selecting with `⌥` dragging
+
 Touch Bar
-  * man page
-  * up/down
-  * bookmark
-  * color picker (¿why?)
+* man page
+* up/down
+* bookmark
+* color picker (¿why?)
 
 ---
 
@@ -96,14 +109,13 @@ Now we are entering the realm of CLI → GUI interaction, aka the good stuff
 
 ---
 
-## Greatest Hits ##
-
 ### `pbpaste(1)` and `pbcopy(1)` ###
 
-`pbpaste`: output contents of the “pasteboard” to `STDOUT`
-`pbcopy`: write `STDIN` to the pasteboard
+* `pbpaste`: output contents of the “pasteboard” to `STDOUT`
+* `pbcopy`: write `STDIN` to the “pasteboard”
+* `pbmunge` hashtag-humblebrag on [my custom function for pasteboard manipulation][pbmunge.bash gist]
 
-TODO: my own invention: `pbmunge`
+---
 
 ### `open(1)` ###
 
@@ -122,8 +134,6 @@ More [from Brett Terpstra on `open(1)`][Brett Terpstra on open(1)]
 
 ---
 
-## Useful macOS Specific Features ##
-
 ### `mdfind` ###
 
 Search spotlight database.
@@ -132,12 +142,14 @@ Search spotlight database.
     mdfind -0 # ASCII NUL after each file for piping output to other utils like `xargs -0`
     mdfind -onlyin ../path/to/dir # limit search to specified directory
 
+---
+
 ### Quick Look ###
 
 Open Quick Look from the command line. (This is one you might want to make an alias for).
 
     qlmanage -p my-pretty-picture.jpg
-    alias qlook 'qlmanage -p' # create bash alias
+    alias qlook='qlmanage -p' # create bash alias
 
 Apple Support has [a primer on Quick Look][macOS Sierra: Quick Look], in case you don’t know about.
 
@@ -157,20 +169,31 @@ Keep your mac from sleeping, or wake it if it is asleep.
 
 ---
 
-## KeyCastr ##
+## Made with Mac ##
 
-The lovely toast messages of my keyboard input, as I type are provided by the Open Sourced KeyCastr App
+### KeyCastr ###
+
+The lovely toast messages of my keyboard input, as I type are provided by the [Open Sourced KeyCastr App][KeyCastr project on GitHub]
+
+### Marp ###
+
+The [Marp Project][Marp project website] provides a pretty good Markdown → SPA tool for making simple slide decks.
+
 
 
 ---
 
+[Homebrew Project website]: https://brew.sh/
 [Brett Terpstra on open(1)]: http://brettterpstra.com/2014/08/06/shell-tricks-the-os-x-open-command/
 [Readline shortcuts]: https://kapeli.com/cheat_sheets/Bash_Shortcuts.docset/Contents/Resources/Documents/index
-[Unix filesystem: Conventional directory layout][https://en.wikipedia.org/wiki/Unix_filesystem#Conventional_directory_layout]
+[Unix filesystem: Conventional directory layout]: https://en.wikipedia.org/wiki/Unix_filesystem#Conventional_directory_layout
+[log_defaults_writes.bash gist]: https://gist.github.com/roosto/af674e123f4cd51be776d9d339a59f2f
+[pbmunge.bash gist]: https://gist.github.com/roosto/3a18e2466b058d7ee250793a1926743e
 [xkcd on say(1)]: https://xkcd.com/530/
 [Brett Terpstra on caffeinate(1)]: http://brettterpstra.com/2014/02/20/quick-tip-caffeinate-your-terminal/
 [TidBITS on Quick Look]: http://tidbits.com/article/16254
 [Homebrew]: http://brew.sh
 [macOS Sierra: Quick Look]: https://support.apple.com/kb/ph25575
 [KeyCastr project on GitHub]: https://github.com/keycastr/keycastr
+[Marp project website]: https://marp.app/
 
