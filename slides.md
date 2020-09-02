@@ -4,9 +4,9 @@
 
 ## Why? ##
 
-1. Mid-90s Apple is circling the drain, their OS is a shared memory disaster
-2. In order to save its bacon, and have a shot at a modern OS, Apple buys NeXT in 1996 (guess who the founder & CEO of NeXT is 🤔)
-3. macOS né Mac OS X is adapted from NeXTSTEP, which is based off of BSD Unix (BSD is different from linux, b/c GNU)
+* Mid-90s Apple is circling the drain, their OS is a shared memory disaster
+* In order to save its bacon, and have a shot at a modern OS, Apple buys NeXT in 1996 (guess who the founder & CEO of NeXT is 🤔)
+* macOS né Mac OS X is adapted from NeXTSTEP, which is based off of BSD Unix (BSD is different from linux, b/c GNU)
 
 Now the Mac has a lovely unix underpinning 🎉😎🥳🎊
 
@@ -14,10 +14,10 @@ Now the Mac has a lovely unix underpinning 🎉😎🥳🎊
 
 ## GUI → CLI Tips ##
 
-1. Drag a file onto the terminal to get its path put on the command line
-2. In the Finder `⇧⌘G` gives a dialogue box to open a location, that can use tab completion.
-3. Pressing `/` or `⇧⌘G` in any file picker dialogue will give you the same file location dialogue box.
-4. Show/hides hidden files in a save dialogue box, or in the Finder: `⇧⌘.` (more on this later)
+* Drag a file onto the terminal to get its path put on the command line
+* In the Finder `⇧⌘G` gives a dialogue box to open a location, that can use tab completion.
+* Pressing `/` or `⇧⌘G` in any file picker dialogue will give you the same file location dialogue box.
+* Show/hides hidden files in a save dialogue box, or in the Finder: `⇧⌘.` (more on this later)
 
 ---
 
@@ -25,10 +25,7 @@ Now the Mac has a lovely unix underpinning 🎉😎🥳🎊
 
 System-wide support for many [GNU readline shortcuts][Readline shortcuts]
 
-Many interactive unix programs support/use readline, so learning these shortcuts is quite useful.
-
-TODO: rails console invocation (fix ctrl-y)
-TODO: web form text editing
+Most text editing areas in macOS, from file save to web forms will support Readline shortcuts. Many interactive unix programs also support/use readline, so learning these shortcuts is quite useful.
 
 ---
 
@@ -42,25 +39,6 @@ The only sane way to install 3rd party unix software on your mac
 * See the [project’s home][Homebrew Project website]
 
 For primers on about the filesystem hierarchy & organization (it’s actually not just chaos). See the manual entry for `hier(7)` or the [Wiki article on the Unix filesystem][Unix filesystem: Conventional directory layout]
-
----
-
-## `defaults write` ##
-
-Coming back to showing hidden files. Maybe you’ve seen these?
-
-    defaults write com.apple.finder AppleShowAllFiles YES # this is one is gross
-
-
-    defaults write com.apple.screencapture location ~/Screenshots
-
-* These can be found out and about on the web
-* Be wary of them
-    * they get out of date a lot
-    * some are dangerous; e.g., turning off Gatekeeper
-    * some are redundant to GUI settings
-
-I use [a logging script][log_defaults_writes.bash gist] little technique to record any writes that I make, so that I have some idea of what broke ~~if happen to~~ when I inventitiably I break something.
 
 ---
 
@@ -134,6 +112,25 @@ More [from Brett Terpstra on `open(1)`][Brett Terpstra on open(1)]
 
 ---
 
+## `defaults write` ##
+
+Coming back to showing hidden files. Maybe you’ve seen these?
+
+    defaults write com.apple.finder AppleShowAllFiles YES # this is one is gross
+
+
+    defaults write com.apple.screencapture location ~/Screenshots
+
+* These can be found out and about on the web
+* Be wary of them
+    * they get out of date a lot
+    * some are dangerous; e.g., turning off Gatekeeper
+    * some are redundant to GUI settings
+
+I use [a logging script][log_defaults_writes.bash gist] little technique to record any writes that I make, so that I have some idea of what broke ~~if happen to~~ when I inevitably break something.
+
+---
+
 ### `mdfind` ###
 
 Search spotlight database.
@@ -165,11 +162,15 @@ If there is [an xkcd cartoon][xkcd on say(1)] on the topic, you know that it’s
 
 ### `caffeinate` ###
 
-Keep your mac from sleeping, or wake it if it is asleep.
+Keep your mac from sleeping, or wake it if it is asleep. (Like `ssh` into your mac and run this)
+
+[Brett Terpstra on caffeinate(1)][Brett Terpstra on caffeinate(1)]
 
 ---
 
 ## Made with Mac ##
+
+Tools I used to make this
 
 ### KeyCastr ###
 
